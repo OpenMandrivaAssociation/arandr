@@ -60,3 +60,14 @@ python setup.py install --root=%{buildroot}
 %{_datadir}/applications/arandr.desktop
 %{_datadir}/locale/
 %{_mandir}/man1/*.xz
+
+
+%changelog
+* Wed Jun 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.1.6-1
++ Revision: 806304
+- version update 0.1.6
+
+* Wed Nov 16 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.1.5-1
++ Revision: 731184
+- imported package arandr
+

@@ -2,7 +2,7 @@ Summary:	Screen layout editor for xrandr 1.2 (Another XRandR gui)
 Name:		arandr
 URL:		http://christian.amsuess.com/tools/arandr/
 Version:	0.1.10
-Release:	2
+Release:	3
 Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
 License:	GPLv3
 Group:		System/X11
@@ -11,6 +11,20 @@ BuildRequires:	python-devel
 BuildRequires:	python-docutils
 Requires:	task-x11
 Requires:	pygtk2.0
+
+%files
+%defattr(-,root,root)
+%doc NEWS README TODO
+%{py_puresitedir}/screenlayout
+%{py_puresitedir}/*.egg-info
+
+%{_bindir}/%{name}
+%{_bindir}/unxrandr
+%{_datadir}/applications/arandr.desktop
+%{_datadir}/locale/
+%{_mandir}/man1/*
+
+#--------------------------------------------------------------------
 
 %description
 Provide a simple visual front end for XRandR 1.2, client
@@ -41,33 +55,11 @@ Features
 
 
 %prep
-%setup -q
+%autosetup -p0
 
 %build
-python setup.py build
+%py_build
 
 %install
-python setup.py install --root=%{buildroot}
-
-%files
-%defattr(-,root,root)
-%doc NEWS README TODO
-%{py_puresitedir}/screenlayout
-%{py_puresitedir}/*.egg-info
-
-%{_bindir}/%{name}
-%{_bindir}/unxrandr
-%{_datadir}/applications/arandr.desktop
-%{_datadir}/locale/
-%{_mandir}/man1/*.xz
-
-
-%changelog
-* Wed Jun 20 2012 Alexander Khrukin <akhrukin@mandriva.org> 0.1.6-1
-+ Revision: 806304
-- version update 0.1.6
-
-* Wed Nov 16 2011 Alexander Khrukin <akhrukin@mandriva.org> 0.1.5-1
-+ Revision: 731184
-- imported package arandr
+%py_install
 

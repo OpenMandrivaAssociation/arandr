@@ -6,7 +6,7 @@ License:	GPLv3
 Group:		System/X11
 URL:		http://christian.amsuess.com/tools/arandr/
 Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
-BuildRequires:	pkgconfitg(python3)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python3dist(docutils)
 BuildRequires:	python3dist(setuptools)
 BuildRequires:  desktop-file-utils

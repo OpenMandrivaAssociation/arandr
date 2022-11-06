@@ -1,28 +1,32 @@
 Summary:	Screen layout editor for xrandr 1.2 (Another XRandR gui)
 Name:		arandr
-URL:		http://christian.amsuess.com/tools/arandr/
 Version:	0.1.10
 Release:	3
-Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
 License:	GPLv3
 Group:		System/X11
+URL:		http://christian.amsuess.com/tools/arandr/
+Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
+BuildRequires:	pkgconfitg(python3)
+BuildRequires:	python3dist(docutils)
+BuildRequires:	python3dist(setuptools)
+BuildRequires:  desktop-file-utils
+
+Requires:       python3
+Requires:       python3dist(pygobject)
+Requires:       xrandr
+
 BuildArch:	noarch
-BuildRequires:	python-devel
-BuildRequires:	python-docutils
-Requires:	task-x11
-Requires:	pygtk2.0
 
-%files
-%defattr(-,root,root)
-%doc NEWS README TODO
-%{py_puresitedir}/screenlayout
-%{py_puresitedir}/*.egg-info
-
+%files -f %{name}.lang
+%license COPYING
+%doc README TODO ChangeLog NEWS
 %{_bindir}/%{name}
 %{_bindir}/unxrandr
-%{_datadir}/applications/arandr.desktop
-%{_datadir}/locale/
-%{_mandir}/man1/*
+%{python3_sitelib}/screenlayout/
+%{python3_sitelib}/arandr-%{version}-py*.egg-info
+%{_datadir}/applications/%{name}.desktop
+%{_mandir}/man1/%{name}.1.*
+%{_mandir}/man1/unxrandr.1.*
 
 #--------------------------------------------------------------------
 
@@ -62,4 +66,7 @@ Features
 
 %install
 %py_install
+
+# locales
+%find_lang %{name}
 

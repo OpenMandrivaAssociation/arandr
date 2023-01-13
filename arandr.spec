@@ -1,7 +1,7 @@
 Summary:	Screen layout editor for xrandr 1.2 (Another XRandR gui)
 Name:		arandr
-Version:	0.1.10
-Release:	3
+Version:	0.1.11
+Release:	1
 License:	GPLv3
 Group:		System/X11
 URL:		http://christian.amsuess.com/tools/arandr/

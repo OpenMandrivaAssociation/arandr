@@ -10,6 +10,7 @@ Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.
 BuildRequires:	python3dist(docutils)
 BuildRequires:	python3dist(setuptools)
 BuildRequires:  desktop-file-utils
+BuildRequires:  gettext
 
 BuildSystem:    python
 

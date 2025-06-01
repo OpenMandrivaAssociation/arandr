@@ -1,15 +1,17 @@
 Summary:	Screen layout editor for xrandr 1.2 (Another XRandR gui)
 Name:		arandr
 Version:	0.1.11
-Release:	1
+Release:	2
 License:	GPLv3
 Group:		System/X11
 URL:		https://christian.amsuess.com/tools/arandr/
 Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
-BuildRequires:	pkgconfig(python3)
+
 BuildRequires:	python3dist(docutils)
 BuildRequires:	python3dist(setuptools)
 BuildRequires:  desktop-file-utils
+
+BuildSystem:    python
 
 Requires:       python3
 Requires:       python3dist(pygobject)
@@ -57,16 +59,7 @@ Features
 * Main widget separated from packaged application (to facilitate
   integration with existing solutions)
 
-
-%prep
-%autosetup -p0
-
-%build
-%py_build
-
-%install
-%py_install
-
+%install -a
 # locales
 %find_lang %{name}
 

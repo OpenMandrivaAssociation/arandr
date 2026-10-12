@@ -7,15 +7,15 @@ Group:		System/X11
 URL:		https://christian.amsuess.com/tools/arandr/
 Source0:	http://christian.amsuess.com/tools/arandr/files/%{name}-%{version}.tar.gz
 
-BuildRequires:	python3dist(docutils)
-BuildRequires:	python3dist(setuptools)
+BuildRequires:	python%{pyver}dist(docutils)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:  desktop-file-utils
 BuildRequires:  gettext
 
 BuildSystem:    python
 
-Requires:       python3
-Requires:       python3dist(pygobject)
+Requires:       python
+Requires:       python%{pyver}dist(pygobject)
 Requires:       xrandr
 
 BuildArch:	noarch
@@ -59,6 +59,10 @@ Features
 
 * Main widget separated from packaged application (to facilitate
   integration with existing solutions)
+
+%prep -a
+# setuptools 84 no longer sets dry_run on Command subclasses.
+sed -i 's/def initialize_options(self): pass/def initialize_options(self):\n        self.dry_run = False/' setup.py
 
 %install -a
 # locales
